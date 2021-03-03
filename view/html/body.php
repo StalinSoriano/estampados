@@ -76,7 +76,7 @@
                     <img src="assets/img/a.jpg" alt="">
                     <h3>Stalin Soriano</h3>
                     <p>cargo</p>
-                </div>
+                </div> 
 
             </div>
         </div>
