@@ -6,6 +6,7 @@
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#team">Nuestro Equipo</a></li>
         <li><a href="#contact">Contáctanos</a></li>
+        <li><a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i class="bi bi-person-circle"></i></a></li>
     </ul>
 </section>
 <section class="banner" id="banner">

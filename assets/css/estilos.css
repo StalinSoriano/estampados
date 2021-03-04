@@ -4,9 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-body{
-    height: 2000px;
-}
+
 p{
     font-weight: 300;
     color: #111;
@@ -107,6 +105,13 @@ font-weight: 500;
     color: #ff0157;
 }
 
+.menu{
+    width: 100%;
+    height: 90px;
+    background: #212F3C;
+    position: fixed;
+    z-index: 1;
+}
 #about {
     padding: 100px;
 }
@@ -263,4 +268,134 @@ z-index: 1;
     to{
         transform: rotate(360deg);
     }
+}
+/*diseño login*/
+.tooltip{
+    z-index: 10001;
+}
+#login{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+}
+#login .cardL{
+    height: 100vh;
+    width: 100%;
+    background: url(../img/bk.png) no-repeat;
+    background-size: 100% 102%;
+    
+    
+    /*Ayuda a centrar un elemento*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Ayuda a centrar un elemento*/
+}
+#login .cardL img{
+border-radius: 50%; 
+
+height: 50%;
+width: 50%;
+animation: logo 10s linear infinite normal both;/*animación del logo*/
+animation-direction: alternate;
+}
+
+@keyframes logo{
+    from{
+        transform: rotate(0deg);
+        height: 20vh;
+width: 20vh;
+        
+    }
+    
+    to{
+        transform: rotate(360deg);
+        height: 60vh;
+width: 60vh;
+    }
+}
+
+#login .formL{
+    padding: 3%;
+}
+
+#login .formL .titleL{
+    margin-top: 45px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+#login .formL .separatorL{
+    width: 100%;
+    height: 4px;
+    background-color: #843bc7;
+}
+
+.welcome-messageL{
+    margin-top: 5px;
+    text-align: center;
+}
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-controlL {
+    width: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #333;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color   0.4s;
+}
+
+input:focus ~ i {
+    color: #843bc7;
+}
+
+button.submit,button.button {
+    color: #fff;
+    padding: 14px 64px;
+    margin: 10px 80px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #8b33c5, #15a0e1);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+button.button{
+    background-image: linear-gradient(to right, rgb(212, 28, 28), #f00808);
+}
+
+button.submit:hover {
+    opacity: 0.9;
+    cursor: pointer;
 }
