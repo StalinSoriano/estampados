@@ -399,3 +399,146 @@ button.submit:hover {
     opacity: 0.9;
     cursor: pointer;
 }
+
+#btnGuardarLogin{
+    position: relative;
+    left: 40%;
+}
+
+#catalogo h2{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0157;
+    text-transform: uppercase;
+}
+
+#catalogo .categoriasC {
+    margin-top: 15px;
+    text-align: center;
+
+}
+#catalogo .categoriasC  a{
+    
+    padding: 15px 25px;
+    text-decoration: none;
+    background: linear-gradient(45deg ,#008080,#000080);
+    
+    font-size: 1rem;
+    border-radius: 5px;
+    color: #fff;
+    
+    font-weight: bold;
+    height: auto;
+  word-wrap: break-word;
+}
+#catalogo .categoriasC  a:hover{
+opacity: 0.8;
+}
+#catalogo .categoriasC  a:focus{
+
+background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
+color: #fff;
+}
+#cardCatalogo{
+    padding: 2%;
+    margin: 3%;
+    position: relative;
+    
+    box-shadow: 2px 2px 5px #999;
+   
+
+}
+#catalogo{
+    background: url(../img/fondo.jpg);
+    background-size: cover;
+    padding-top: 8.5%;
+}
+#cardCatalogo .cardC{
+    
+  
+    padding: 0px 0px 2% 0px;
+    margin: 4% 0px;
+    border-radius: 5px;
+   
+    box-shadow: 2px 2px 5px #999; /*sombra*/
+}
+#cardCatalogo img{
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#cardCatalogo .cardC .infoCardC{
+    text-align: center;
+
+}
+
+.infoCardC p{
+    
+    margin-bottom: 0px;
+    font-weight: bold;
+    margin: 2px;
+    height: auto;
+  word-wrap: break-word;
+
+}
+
+.infoCardC em{
+    display: block;
+
+}
+.infoCardC button{
+    padding: 5px 25px;
+    margin: 5px;
+    background: linear-gradient(45deg ,#008080,#000080);
+    color: #fff;
+}
+
+
+
+
+
+#cardCatalogo .bloque1{
+    border: 3px solid #999;
+    box-shadow: 2px 2px 5px #999;
+}
+#cardCatalogo .subcategorias {
+    padding: 0;
+}
+
+#cardCatalogo .subcategorias a{
+    display: block;
+   padding: 5px 5px;
+    width: 100%;
+    color: #fff;
+    
+    text-decoration: none; 
+    font-size: 1rem;
+  
+    background:linear-gradient(45deg,#454545,#999999);
+    /*sirve para que no se desborde un texto de su contenedor*/
+    height: auto;
+  word-wrap: break-word;
+      /*sirve para que no se desborde un texto de su contenedor*/
+}
+#cardCatalogo .subcategorias a:hover,#cardCatalogo .subcategorias a:focus{
+    background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
+    color: #fff;
+}
+.bloque1 p{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #ff0157;
+    padding: 10px 0px;  
+}
+.titleSub{
+    padding: 0px;
+}
+.icono {
+    color: #fff;
+}

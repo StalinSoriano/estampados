@@ -2,18 +2,21 @@
     <a href="#" class="logo">LIONS DECORMOTORS<span>.</span></a>
     <ul class="navigation">
         <li><a href="#banner">Inicio</a></li>
-        <li><a href="#banner">Catálogo</a></li>
+        <li><a href="?c=Home&a=catalogo">Catálogo</a></li>
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#team">Nuestro Equipo</a></li>
         <li><a href="#contact">Contáctanos</a></li>
-        <li><a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i class="bi bi-person-circle"></i></a></li>
+        <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" id="carrito2"><i class="bi bi-cart4"></i></a></li>
+     
+        <li class="icono"><?php if(!isset($_SESSION['user'])){echo'<a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i
+                    class="bi bi-person-circle"></i></a>';}else {echo'<i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario();} ?></li>
     </ul>
 </section>
 <section class="banner" id="banner">
     <div class="content">
         <h2>El Rey de los Estampados</h2>
         <p>Conoce nuestra variedad de productos con un solo click !</p>
-        <a href="#" class="btn">Catálogo</a>
+        <a href="?c=Home&a=catalogo" class="btn">Catálogo</a>
     </div>
 </section>
 

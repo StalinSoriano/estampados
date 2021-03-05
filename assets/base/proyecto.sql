@@ -44,8 +44,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`personas` (
   `estado` INT NOT NULL,
   `idroles` INT NOT NULL,
   PRIMARY KEY (`idpersonas`),
-  INDEX `_idx` (`idroles` ASC) VISIBLE,
-  CONSTRAINT ``
+  CONSTRAINT `idroles`
     FOREIGN KEY (`idroles`)
     REFERENCES `proyecto`.`roles` (`idroles`)
     ON DELETE NO ACTION
@@ -73,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`subcategorias` (
   `estado` INT NOT NULL,
   `idcategorias` INT NOT NULL,
   PRIMARY KEY (`idsubcategorias`),
-  INDEX `_idx` (`idcategorias` ASC) VISIBLE,
-  CONSTRAINT ``
+  CONSTRAINT `idcategorias`
     FOREIGN KEY (`idcategorias`)
     REFERENCES `proyecto`.`categorias` (`idcategorias`)
     ON DELETE NO ACTION
@@ -93,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`productos` (
   `estado` INT NOT NULL,
   `idsubcategorias` INT NOT NULL,
   PRIMARY KEY (`idproductos`),
-  INDEX `idsubcategorias_idx` (`idsubcategorias` ASC) VISIBLE,
   CONSTRAINT `idsubcategorias`
     FOREIGN KEY (`idsubcategorias`)
     REFERENCES `proyecto`.`subcategorias` (`idsubcategorias`)
@@ -112,8 +109,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`detpedidos` (
   `estado` INT NOT NULL,
   `idproductos` INT NOT NULL,
   PRIMARY KEY (`iddetpedidos`),
-  INDEX `idproductos_idx` (`idproductos` ASC) VISIBLE,
-  CONSTRAINT ``
+  CONSTRAINT `idproductos`
     FOREIGN KEY (`idproductos`)
     REFERENCES `proyecto`.`productos` (`idproductos`)
     ON DELETE NO ACTION
@@ -133,9 +129,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`pedidos` (
   `idpersonas` INT NOT NULL,
   `iddetpedidos` INT NOT NULL,
   PRIMARY KEY (`idpedidos`),
-  INDEX `iddetpedidos_idx` (`iddetpedidos` ASC) VISIBLE,
-  INDEX `idpersonas_idx` (`idpersonas` ASC) VISIBLE,
-  CONSTRAINT ``
+  CONSTRAINT `iddetpedidos`
     FOREIGN KEY (`iddetpedidos`)
     REFERENCES `proyecto`.`detpedidos` (`iddetpedidos`)
     ON DELETE NO ACTION
@@ -147,13 +141,6 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`pedidos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `proyecto`.`table1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto`.`table1` (
-)
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
