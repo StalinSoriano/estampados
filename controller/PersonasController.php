@@ -26,11 +26,22 @@ class PersonasController
             $per = $this->personasModel->filtrarLogin($_REQUEST['usuario'], $_REQUEST['pass']);
             if (!empty($per)) {
                 $_SESSION['user'] = $per[0];
-                require 'view/html/header.php';
+                
+
+                if( $_SESSION['user']->getIdroles()!='admin'){
+                    require 'view/html/header.php';
 
                 require_once 'view/html/catalogo.php';
 
                 require_once 'view/html/footer.php';
+                }else{
+                    require 'view/html/header.php';
+
+                require_once 'view/html/admin.php';
+                
+
+                require_once 'view/html/footer.php';
+                }
                
              
             } else {
@@ -45,8 +56,27 @@ class PersonasController
     public function logout()
     {
 
+      if(isset($_SESSION['user'])){
         session_destroy();
        
-       header("location:index.php");
+        header("location:index.php");
+      }
     }
+
+    public function admin()
+    {
+
+      if(isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin'){
+        require 'view/html/header.php';
+
+        require_once 'view/html/admin.php';
+        require_once 'view/roles/rolesView.php';
+
+        require_once 'view/html/footer.php';
+       
+      }else{
+        header("location:index.php");
+      }
+    }
+ 
 }

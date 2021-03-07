@@ -1,0 +1,170 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root{
+  --nav-width:92px;
+  /*====Colors===*/
+  --first-color:#0C5DF4;
+  --bg-color:#12192C;
+  --sub-color:#B6CEFC;
+  --white-color:#fff;
+
+  /*====Fuente y tipografía===*/
+  --body-font:'Poppins',sans-serif;
+  --normal-font-size:1rem;
+  --small-font-size:.775rem;
+
+  /*====z Index===*/
+  --z-fixed:100;
+}
+
+/*====Base===*/
+*,::before,::after{
+box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.body{
+  position: relative;
+  margin: 0;
+  padding: 0rem 0 0 6.60rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: .5s;
+}
+
+#body-pd2 h1{
+  margin: 0;
+}
+#body-pd2 ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#body-pd2 .nav2 a{
+  text-decoration: none;
+  color: var(--white-color);
+}
+/*====L Nav===*/
+#body-pd2 .l-navbar2{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height:100vh;
+  background-color: var(--bg-color);
+  color: var(--white-color);
+  padding: 1.5rem 1.5rem 2rem;
+  transition: .5s;
+  z-index: var(--z-fixed);
+
+}
+
+/*====Nav===*/
+#body-pd2 .nav2{
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   overflow: hidden;
+}
+#body-pd2 .nav_brand2{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#body-pd2 .nav_toggle2{
+  font-size: 1.25rem;
+  padding: .75rem;
+  cursor: pointer;
+}
+#body-pd2 .nav_logo2{
+  color:var(--white-color);
+  font-weight: 600;
+}
+#body-pd2 .nav_link2{
+  display:grid; 
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: .75rem;
+  padding: .75rem;
+  color: var(--white-color);
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  transition: .3s;
+  cursor: pointer;
+}
+#body-pd2 .nav_link2:hover{
+  background-color: var(--first-color);
+}
+#body-pd2 .nav_icon2{
+  font-size: 1.25rem;
+}
+#body-pd2 .nav_name2{
+  font-size: var(--small-font-size);
+}
+
+/*====Expander Menú===*/
+#body-pd2 .expander2{
+  width: calc(var(--nav-width)+15.25rem);
+}
+/*====Add Paddind Body===*/
+ .body-pd2{
+  padding: 0 0 0 15.75rem;
+}
+
+/*====Active Links Menu===*/
+#body-pd2 .active2{
+  background-color: var(--first-color);
+}
+/*====Collapse_link===*/
+#body-pd2 .collapse2{
+  grid-template-columns: 20px max-content 1fr;
+}
+#body-pd2 .collapse_link2{
+  justify-self: flex-end;
+  transition: .5;
+}
+#body-pd2 .collapse_menu2{
+  display: none;
+  padding: .75rem 2.25rem;
+}
+#body-pd2 .collapse_menu2 a{
+
+  color: var(--sub-color);
+}
+#body-pd2 .collapse_sublink2{
+  font-size:var(--small-font-size);
+}
+
+#body-pd2 .collapse_sublink2:hover{
+  color: var(--white-color);
+}
+
+#body-pd2 .showCollapse2{
+  display: block;/* Despliga el submenu*/
+}
+#body-pd2 .rotate2{
+  transform: rotate(175deg);/*Hce rotar el icono hacía arriba*/
+  transition: .5s;
+}
+#body-pd2 #administracion{
+  margin: 0;
+  padding: 0;
+}
+#body-pd2  .barraadmin{
+  border-bottom: 0px solid #999;
+  box-shadow: 2px 2px 5px #999;
+  padding: 10px 15px;
+}
+
+#body-pd2 .barraadmin a i.bi-box-arrow-right{
+  color: #111;
+  font-size: 2rem;
+  margin-right: 10px;
+}

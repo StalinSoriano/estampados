@@ -8,8 +8,21 @@
         <li><a href="index.php#contact">Contáctanos</a></li>
         <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" id="carrito3"><i
                     class="bi bi-cart4"></i></a></li>
-        <li ><a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i
-                    class="bi bi-person-circle"></i></a></li>
+                    <li class="icono"><?php if(!isset($_SESSION['user'])){echo'<a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i
+                    class="bi bi-person-circle"></i></a>';}else {echo'<!-- Default dropleft button -->
+                        <div class="btn-group dropleft">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario().'
+                          </button>
+                          <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item submenu" href="#">Perfil</a>';?><?php 
+                          if($_SESSION['user']->getIdroles()=='admin'){
+                              echo '<a class="dropdown-item submenu" href="?c=Personas&a=admin">Administración</a>';
+                          }
+                   echo 
+                          '<a class="dropdown-item submenu" href="?c=Personas&a=logout">Cerrar Sesión</a>
+                            </div>
+                        </div> ';} ?></li>
     </ul>
 </section>
 <div class="menu">

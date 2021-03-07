@@ -422,7 +422,7 @@ button.submit:hover {
     padding: 15px 25px;
     text-decoration: none;
     background: linear-gradient(45deg ,#008080,#000080);
-    
+    margin: auto 5px;
     font-size: 1rem;
     border-radius: 5px;
     color: #fff;
@@ -539,6 +539,20 @@ color: #fff;
 .titleSub{
     padding: 0px;
 }
+
 .icono {
     color: #fff;
+}
+
+#header.sticky .icono {
+    color: #111;
+}
+#header .navigation li a.submenu {
+    
+    color: #111;
+}
+
+#header .navigation li .marginAbajo {
+    position: relative;
+    bottom: 10px;
 }

@@ -6,10 +6,25 @@
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#team">Nuestro Equipo</a></li>
         <li><a href="#contact">Contáctanos</a></li>
-        <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" id="carrito2"><i class="bi bi-cart4"></i></a></li>
-     
+        <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" id="carrito2"><i
+                    class="bi bi-cart4"></i></a></li>
         <li class="icono"><?php if(!isset($_SESSION['user'])){echo'<a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i
-                    class="bi bi-person-circle"></i></a>';}else {echo'<i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario();} ?></li>
+                    class="bi bi-person-circle"></i></a>';}else {echo'<!-- Default dropleft button -->
+                        <div class="btn-group dropleft">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario().'
+                          </button>
+                          <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item submenu" href="#">Perfil</a>';?><?php 
+                          if($_SESSION['user']->getIdroles()=='admin'){
+                              echo '<a class="dropdown-item submenu" href="?c=Personas&a=admin">Administración</a>';
+                          }
+                   echo 
+                          '<a class="dropdown-item submenu" href="?c=Personas&a=logout">Cerrar Sesión</a>
+                            </div>
+                        </div> ';} ?></li>
+    </ul>
+   
     </ul>
 </section>
 <section class="banner" id="banner">
@@ -65,7 +80,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-3 "> 
+            <div class="col-lg-3 ">
 
                 <div class="card">
                     <img src="assets/img/a.jpg" alt="">
@@ -80,7 +95,7 @@
                     <img src="assets/img/a.jpg" alt="">
                     <h3>Stalin Soriano</h3>
                     <p>cargo</p>
-                </div> 
+                </div>
 
             </div>
         </div>
@@ -139,7 +154,7 @@
             </div>
             <div class="col-sm-12 text-center copyright">
 
-                © 2021 Copyright: S.D.S.A.  
+                © 2021 Copyright: S.D.S.A.
 
             </div>
         </div>
