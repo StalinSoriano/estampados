@@ -61,7 +61,7 @@ if($c=='Pedidos'){
                     <ion-icon name="chevron-down-outline" class="collapse_link2"></ion-icon>
                     <ul class="collapse_menu2" >
                         <a href="?c=Categorias&a=consulta" class="collapse_sublink2">Categorías</a>
-                        <a href="" class="collapse_sublink2">Subcategoías</a>
+                        <a href="?c=Subcategorias&a=consulta" class="collapse_sublink2">Subcategoías</a>
                         <a href="" class="collapse_sublink2">Productos</a>
                     </ul>
                 </div>

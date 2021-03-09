@@ -4,7 +4,7 @@
         <section class="sectionAdminGetionEdit">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h2>Gestión de roles</h2>
+                    <h2>Gestión de Categorias</h2>
                 </div>
                 <div class="col-sm-12 " >
                     <form class="formView"  action="?c=Categorias&a=guardar" method="post" enctype="multipart/form-data">

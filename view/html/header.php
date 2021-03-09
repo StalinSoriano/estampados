@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/alertify.min.css">
-    <title>Hello, world!</title>
+    <title>Proyecto</title>
   </head>
   <body>
     
