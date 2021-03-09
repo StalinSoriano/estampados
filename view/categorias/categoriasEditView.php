@@ -7,19 +7,19 @@
                     <h2>Gestión de roles</h2>
                 </div>
                 <div class="col-sm-12 " >
-                    <form class="formView"  action="?c=Roles&a=guardar" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?php echo $rol->getIdroles(); ?>" />
+                    <form class="formView"  action="?c=Categorias&a=guardar" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo $cat->getIdcategorias(); ?>" />
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="nombreRol">Nombres</label>
-                                <input type="text" class="form-control" id="nombreRol" placeholder="Nombre" name="nombre" value="<?php echo $rol->getNombre();?>">
+                                <label for="nombreCat">Nombres</label>
+                                <input type="text" class="form-control" id="nombreCat" placeholder="Nombre" name="nombre" value="<?php echo $cat->getNombre();?>">
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="estadoRol">Estado</label>
+                                <label for="estadocat">Estado</label>
                                 <select class="custom-select " name="estado">
                                 <option selected>Seleccione</option>
-                                <option <?php if ($rol->getEstado() == "1") echo " selected=selected"; ?> value="1">Activo</option>
-                                <option <?php if ($rol->getEstado() == "2") echo " selected=selected"; ?> value="2">Inactivo</option>
+                                <option <?php if ($cat->getEstado() == "1") echo " selected=selected"; ?> value="1">Activo</option>
+                                <option <?php if ($cat->getEstado() == "2") echo " selected=selected"; ?> value="2">Inactivo</option>
                             </select>
                             </div>
                            

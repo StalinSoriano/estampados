@@ -29,7 +29,7 @@ body{
 .body{
   position: relative;
   margin: 0;
-  padding: 0rem 0 0 6.60rem;
+  padding: 0rem 0 0 15.75rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: .5s;
@@ -103,7 +103,7 @@ body{
   background-color: var(--first-color);
 }
 #body-pd2 .nav_icon2{
-  font-size: 1.25rem;
+  font-size: 1.25rem; 
 }
 #body-pd2 .nav_name2{
   font-size: var(--small-font-size);
@@ -115,7 +115,7 @@ body{
 }
 /*====Add Paddind Body===*/
  .body-pd2{
-  padding: 0 0 0 15.75rem;
+  padding: 0 0 0 6.60rem;
 }
 
 /*====Active Links Menu===*/
@@ -148,10 +148,11 @@ body{
 
 #body-pd2 .showCollapse2{
   display: block;/* Despliga el submenu*/
+   
 }
 #body-pd2 .rotate2{
   transform: rotate(175deg);/*Hce rotar el icono hacía arriba*/
-  transition: .5s;
+  transition: 0.5s;
 }
 #body-pd2 #administracion{
   margin: 0;
@@ -168,19 +169,22 @@ body{
   font-size: 2rem;
   margin-right: 10px;
 }
-#roles{
+/** section roles*/
+.sectionAdminGetionView{
   padding-top: 2%;
 }
 
-#roles .table-responsive{
+.sectionAdminGetionView .table-responsive{
   padding: 2%;
 }
-#rolesEdit{
+.sectionAdminGetionView{
   padding-top: 2%;
 }
+.sectionAdminGetionView .btnAdd{
+  margin-right: 2%;
+}
 
-
-#rolesEdit .formRol{ /*centrar formulario horizontalmente*/
+.sectionAdminGetionEdit .formView{ /*centrar formulario horizontalmente*/
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -189,13 +193,12 @@ body{
   justify-content: center;
   align-items: center;
 }
-#rolesEdit .formRol  button {
+.sectionAdminGetionEdit .formView  button {
   padding: 0.5em 1em;
   border: none;
   background: rgb(100, 200, 255);
   cursor: pointer;
 }
 
-#roles .btnAdd{
-  margin-right: 2%;
-}
+
+/** section roles*/
