@@ -70,7 +70,7 @@ class PersonasController
         require 'view/html/header.php';
 
         require_once 'view/html/admin.php';
-        require_once 'view/roles/rolesView.php';
+        require_once 'view/roles/personasView.php';
 
         require_once 'view/html/footer.php';
        

@@ -168,3 +168,34 @@ body{
   font-size: 2rem;
   margin-right: 10px;
 }
+#roles{
+  padding-top: 2%;
+}
+
+#roles .table-responsive{
+  padding: 2%;
+}
+#rolesEdit{
+  padding-top: 2%;
+}
+
+
+#rolesEdit .formRol{ /*centrar formulario horizontalmente*/
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#rolesEdit .formRol  button {
+  padding: 0.5em 1em;
+  border: none;
+  background: rgb(100, 200, 255);
+  cursor: pointer;
+}
+
+#roles .btnAdd{
+  margin-right: 2%;
+}

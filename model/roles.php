@@ -12,7 +12,7 @@ class Roles {
         }
         
         function getIdroles() {
-            return $this->Idroles;
+            return $this->idroles;
         }
 
      
