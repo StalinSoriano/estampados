@@ -84,6 +84,7 @@ class PersonasController
     {
         if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='Talento Humano')) {
             $per = $this->personasModel->listar();
+       
 
                 require 'view/html/header.php';
                 require_once 'view/html/admin.php';

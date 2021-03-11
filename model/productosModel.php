@@ -69,9 +69,10 @@ class ProductosModel
     public function registrar(Productos $pro){
         try {
             /* Sentencias preparadas */
-            $sentencia = $this->db->prepare("insert  into productos ( nombre,precios,descripcion,foto,estado,idsubcategorias ) values (?,?,?,?,?,?)");
+   
+            $sentencia = $this->db->prepare("insert  into productos ( nombre,precios,descripcion,foto,estado,idsubcategorias,idpersonas ) values (?,?,?,?,?,?,?)");
             /* Ejecutar la sentencia */
-            $sentencia->execute(array($pro->getNombre(),$pro->getPrecios(),$pro->getDescripcion(),$pro->getFoto(),$pro->getEstado(),$pro->getIdsubcategorias()));
+            $sentencia->execute(array($pro->getNombre(),$pro->getPrecios(),$pro->getDescripcion(),$pro->getFoto(),$pro->getEstado(),$pro->getIdsubcategorias(),$pro->getIdpersonas()));
         } catch (Exception $e) {
                 //die($e->getTrace());
             die($e->getMessage());

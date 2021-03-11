@@ -52,6 +52,8 @@ class ProductosController
         $pro->setIdproductos($_REQUEST['id']);
         $this->productosModel->actualizar($pro);  
     } else {
+        $pro->setIdpersonas($_SESSION['user']->getIdpersonas());
+
             $this->productosModel->registrar($pro);
         }
         $pro = $this->productosModel->listar();

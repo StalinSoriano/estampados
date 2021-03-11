@@ -13,8 +13,8 @@
                         <input id="btnPerFiltro" type="text" class="form-control" id="inputPer" placeholder="Buscar">
                         <small id="passwordHelpBlock" class="form-text text-muted">
                             Filtro por nombres/apellidos/cédula/rol
+                            
                         </small>
-
                     </div>
 
                 </div>

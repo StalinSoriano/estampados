@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-03-2021 a las 17:07:15
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.3.26
+-- Tiempo de generación: 11-03-2021 a las 19:39:29
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,38 +39,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`idcategorias`, `nombre`, `estado`) VALUES
-(1, 'vinilo', 1),
-(2, 'banner', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detpedidos`
---
-
-CREATE TABLE `detpedidos` (
-  `iddetpedidos` int(11) NOT NULL,
-  `cant` varchar(45) NOT NULL,
-  `precio` double NOT NULL,
-  `estado` int(11) NOT NULL,
-  `idproductos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos`
---
-
-CREATE TABLE `pedidos` (
-  `idpedidos` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `comentario` varchar(200) NOT NULL,
-  `estado` int(11) NOT NULL,
-  `idpersonas` int(11) NOT NULL,
-  `iddetpedidos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(4, 'banner', 1);
 
 -- --------------------------------------------------------
 
@@ -96,9 +66,7 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`idpersonas`, `nombres`, `apellidos`, `cedula`, `telefono`, `email`, `usuario`, `pass`, `genero`, `estado`, `idroles`) VALUES
-(1, 'stalin david', 'soriano arreaga', '0940016561', '0990049136', 'stalin@gmail.com', 'stalin', '$2y$10$JvONLPzbp8b/4k8F8uZF2e476YsT87uCWFuBLOpUmkfHwpGaHXMKC', 'Masculino', 1, 1),
-(2, 'VANESSA', 'PEREZ', '0909090090', '0990049136', 'david.2013681@gmail.com', 'vanessa', '$2y$10$170DCHhJ4GDlisoB3nr6EuvvkAgQD8AbDW2hvDdnma4qUQiNCFRxG', 'Femenino', 1, 3),
-(4, 'luis', 'soriano arreaga', '0909090090', '0990049136', 'stalin.soriano1996@hotmail.com', 'luis', '$2y$10$m/1938k7Y1/k/KXrWdHqvOQQPyutkuZOCPz8WDaJqzEg7/May2CC.', 'Masculino', 1, 4);
+(7, 'stalin david', 'soriano arreaga', '0940016561', '0990049136', 'stalin@gmail.com', 'stalin', '$2y$10$loe/6yn1E8YtcI0kEPB11.15C/4m6TTVjJywXJJ4Bx0q3DDW61wHm', 'Masculino', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -113,16 +81,16 @@ CREATE TABLE `productos` (
   `descripcion` varchar(100) NOT NULL,
   `foto` varchar(200) NOT NULL,
   `estado` int(11) NOT NULL,
-  `idsubcategorias` int(11) NOT NULL
+  `idsubcategorias` int(11) NOT NULL,
+  `idpersonas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`idproductos`, `nombre`, `precios`, `descripcion`, `foto`, `estado`, `idsubcategorias`) VALUES
-(1, 'logoss', 5, 'de una empresa', 'assets/img/productos/1615390473-gabriel-santiago-19787-unsplash.jpg', 1, 1),
-(2, 'fotos', 5, 'de una casa', 'assets/img/productos/1615390498-blog1.jpg', 1, 2);
+INSERT INTO `productos` (`idproductos`, `nombre`, `precios`, `descripcion`, `foto`, `estado`, `idsubcategorias`, `idpersonas`) VALUES
+(4, 'lona', 20, 'es una lona', 'assets/img/productos/1615487889-componentes-de-la-computadora-1.jpeg', 1, 6, 7);
 
 -- --------------------------------------------------------
 
@@ -141,9 +109,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`idroles`, `nombre`, `estado`) VALUES
-(1, 'admin', 1),
-(3, 'trabajador', 1),
-(4, 'Talento Humano', 1);
+(5, 'admin', 1),
+(6, 'trabajador', 1),
+(7, 'Talento Humano', 1);
 
 -- --------------------------------------------------------
 
@@ -163,10 +131,7 @@ CREATE TABLE `subcategorias` (
 --
 
 INSERT INTO `subcategorias` (`idsubcategorias`, `nombre`, `estado`, `idcategorias`) VALUES
-(1, 'ventanass', 1, 1),
-(2, 'puertas', 1, 2),
-(4, 'casa', 1, 1),
-(5, 'pc', 1, 2);
+(6, 'paredes', 1, 4);
 
 --
 -- Índices para tablas volcadas
@@ -177,21 +142,6 @@ INSERT INTO `subcategorias` (`idsubcategorias`, `nombre`, `estado`, `idcategoria
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idcategorias`);
-
---
--- Indices de la tabla `detpedidos`
---
-ALTER TABLE `detpedidos`
-  ADD PRIMARY KEY (`iddetpedidos`),
-  ADD KEY `idproductos` (`idproductos`);
-
---
--- Indices de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`idpedidos`),
-  ADD KEY `iddetpedidos` (`iddetpedidos`),
-  ADD KEY `idpersonas` (`idpersonas`);
 
 --
 -- Indices de la tabla `personas`
@@ -205,7 +155,8 @@ ALTER TABLE `personas`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`idproductos`),
-  ADD KEY `idsubcategorias` (`idsubcategorias`);
+  ADD KEY `idsubcategorias` (`idsubcategorias`),
+  ADD KEY `idpersonas` (`idpersonas`);
 
 --
 -- Indices de la tabla `roles`
@@ -228,60 +179,35 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idcategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `detpedidos`
---
-ALTER TABLE `detpedidos`
-  MODIFY `iddetpedidos` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `idpedidos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `idpersonas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idpersonas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `idroles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idroles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategorias`
 --
 ALTER TABLE `subcategorias`
-  MODIFY `idsubcategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idsubcategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `detpedidos`
---
-ALTER TABLE `detpedidos`
-  ADD CONSTRAINT `idproductos` FOREIGN KEY (`idproductos`) REFERENCES `productos` (`idproductos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `iddetpedidos` FOREIGN KEY (`iddetpedidos`) REFERENCES `detpedidos` (`iddetpedidos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `idpersonas` FOREIGN KEY (`idpersonas`) REFERENCES `personas` (`idpersonas`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `personas`
@@ -293,6 +219,7 @@ ALTER TABLE `personas`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
+  ADD CONSTRAINT `idpersonas` FOREIGN KEY (`idpersonas`) REFERENCES `personas` (`idpersonas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `idsubcategorias` FOREIGN KEY (`idsubcategorias`) REFERENCES `subcategorias` (`idsubcategorias`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

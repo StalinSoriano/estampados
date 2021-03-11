@@ -9,6 +9,7 @@ class Productos {
     public $foto;
     public $estado;
     public $idsubcategorias;
+    public $idpersonas;
             function __construct() {
         
     }
@@ -39,10 +40,15 @@ class Productos {
     function getIdsubcategorias() {
         return $this->idsubcategorias;
     }
+    function getIdpersonas() {
+        return $this->idpersonas;
+    }
+
 
     function setIdproductos($idproductos) {
         $this->idproductos = $idproductos;
     }
+
 
     function setNombre($nombre) {
         $this->nombre = $nombre;
@@ -68,6 +74,9 @@ class Productos {
         $this->idsubcategorias = $idsubcategorias;
     }
 
+    function setIdpersonas($idpersonas) {
+        $this->idpersonas = $idpersonas;
+    }
 
 
 }
