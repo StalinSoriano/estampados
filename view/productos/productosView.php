@@ -53,7 +53,7 @@
                                             data-toggle="tooltip" data-placement="bottom" title="Editar"><i
                                                 style="color: blue;" class="bi bi-pencil-square"></i></a> <a
                                             href="?c=Productos&a=eliminar&id=<?php echo $pro2->getIdproductos() ?>"
-                                            onclick="javascript:return  confirm('Seguro de eliminar');"" data-toggle="
+                                            onclick="javascript:return  confirm('Seguro de eliminar');" data-toggle="
                                             tooltip" data-placement="bottom" title="Eliminar"><i style="color: red;"
                                                 class="bi bi-trash-fill"></i></a></th>
                                     <th scope="row"><?php echo $cont; ?></th>

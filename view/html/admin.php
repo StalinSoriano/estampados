@@ -50,7 +50,7 @@ if($c=='Pedidos'){
                         <ion-icon name="reader-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Roles"></ion-icon>
                         <span class="nav_name2">Gestión Roles</span>
                     </a>
-                    <a href="#" class="nav_link2  <?php echo $active3;?>">
+                    <a href="?c=Personas&a=consulta" class="nav_link2  <?php echo $active3;?>">
                         <ion-icon name="people-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Personas"></ion-icon>
                         <span class="nav_name2">Gestión Personas</span>
                     </a>

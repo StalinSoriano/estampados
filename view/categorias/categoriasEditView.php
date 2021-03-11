@@ -6,6 +6,13 @@
                 <div class="col-sm-12 text-center">
                     <h2>Gestión de Categorias</h2>
                 </div>
+                <div class="col-sm-12 text-right " >
+                    <a  href="?c=Categorias&a=consulta" class="btn btn-success btnAdd" data-toggle="
+                                            tooltip" data-placement="bottom" title="Listado">
+                    <i class="bi bi-arrow-left-square"></i> 
+                    </a>
+                </div>
+                <br>
                 <div class="col-sm-12 " >
                     <form class="formView"  action="?c=Categorias&a=guardar" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $cat->getIdcategorias(); ?>" />

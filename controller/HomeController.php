@@ -1,9 +1,21 @@
 <?php
 require_once 'model/Personas.php';
+require_once 'model/Categorias.php';
+require_once 'model/CategoriasModel.php';
+require_once 'model/Subcategorias.php';
+require_once 'model/SubcategoriasModel.php';
+require_once 'model/Productos.php';
+require_once 'model/ProductosModel.php';
 class HomeController {
   
-
+  
+  private $productosModel;
+    private $categoriasModel;
+    private $subcategoriasModel;
   public function __construct() {
+    $this->productosModel = new ProductosModel();
+    $this->categoriasModel = new CategoriasModel();
+    $this->subcategoriasModel = new SubcategoriasModel();
     session_start();
   }
   public function body()

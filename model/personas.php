@@ -3,17 +3,17 @@
 
 class Personas {
     //put your code here
-        private $idpersonas;
-        private $nombres;
-        private $apellidos;
-        private $cedula;
-        private $telefono;
-        private $email;
-        private $usuario;
-        private $pass;
-        private $genero;
-        private $estado;
-        private $idroles;
+        public $idpersonas;
+        public $nombres;
+        public $apellidos;
+        public $cedula;
+        public $telefono;
+        public $email;
+        public $usuario;
+        public $pass;
+        public $genero;
+        public $estado;
+        public $idroles;
         
         function __construct() {
             
