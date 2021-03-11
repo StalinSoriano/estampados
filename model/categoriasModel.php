@@ -29,6 +29,22 @@ class CategoriasModel
             die($e->getMessage());
         }
     }
+    public function filtro($id){
+        try {
+            /* Sentencias preparadas */
+            $sentencia = $this->db->prepare("select * from categorias where idcategorias=$id");
+            /* Ejecutar la sentencia */
+            $sentencia->execute(array());
+            /* Obtener los resultado */
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Categorias');
+          
+            /* retornar los resultados */
+            return $resultset;
+        } catch (Exception $e) {
+                //die($e->getTrace());
+            die($e->getMessage());
+        }
+    }
     public function registrar(Categorias $cat){
         try {
             /* Sentencias preparadas */

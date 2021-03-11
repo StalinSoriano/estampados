@@ -439,6 +439,10 @@ opacity: 0.8;
 background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
 color: #fff;
 }
+#catalogo .categoriasC a.focus{
+    background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
+    color: #fff; 
+}
 #cardCatalogo{
     padding: 2%;
     margin: 3%;
@@ -493,6 +497,10 @@ color: #fff;
     background: linear-gradient(45deg ,#008080,#000080);
     color: #fff;
 }
+.infoCardC button:hover{
+    background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
+    color: #fff;
+}
 
 
 
@@ -522,6 +530,11 @@ color: #fff;
       /*sirve para que no se desborde un texto de su contenedor*/
 }
 #cardCatalogo .subcategorias a:hover,#cardCatalogo .subcategorias a:focus{
+    background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
+    color: #fff;
+}
+
+#cardCatalogo .subcategorias a.focusS{
     background: linear-gradient(45deg,rgb(172, 53, 93),#ff0157);
     color: #fff;
 }

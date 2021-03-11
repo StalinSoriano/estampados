@@ -44,8 +44,27 @@ public function login()
 require_once 'view/html/footer.php';
   }
 }
+
+
 public function catalogo()
 {
+ 
+  if(!isset($_REQUEST['id'])){
+    $cat=$this->categoriasModel->listar();
+  $sub=$this->subcategoriasModel->filtro($cat[0]->getIdcategorias());
+  $pro=$this->productosModel->filtro($sub[0]->getIdsubcategorias());
+  }else{
+    
+    $cat=$this->categoriasModel->listar();
+    $cat3=$this->categoriasModel->filtro($_REQUEST['id']);
+  $sub=$this->subcategoriasModel->filtro($cat3[0]->getIdcategorias());
+
+ if(!isset($_REQUEST['ids'])){
+  $pro=$this->productosModel->filtro($sub[0]->getIdsubcategorias());  
+ }else{
+  $pro=$this->productosModel->filtro($_REQUEST['ids']);  
+ }
+  }
 
   require 'view/html/header.php';
  
@@ -53,7 +72,6 @@ public function catalogo()
 
 require_once 'view/html/footer.php';
 }
-
 
 }
 

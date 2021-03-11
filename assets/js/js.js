@@ -9,6 +9,10 @@ if(document.getElementById('btnRegistrar')!=null)
         
     });
 }
+$('.btnInfo').click(function(){
+  
+  $('#modalInfo').modal('show');
+});
 /*
 if(document.getElementById('carrito1')!=null)
 {

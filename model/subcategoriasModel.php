@@ -29,6 +29,22 @@ class SubcategoriasModel
             die($e->getMessage());
         }
     }
+    public function filtro($id){
+        try {
+            /* Sentencias preparadas */
+            $sentencia = $this->db->prepare("select s.idsubcategorias, s.nombre,s.estado,c.nombre as idcategorias from subcategorias as s inner join categorias as c on c.idcategorias=s.idcategorias where s.idcategorias=$id");
+            /* Ejecutar la sentencia */
+            $sentencia->execute(array());
+            /* Obtener los resultado */
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Subcategorias');
+          
+            /* retornar los resultados */
+            return $resultset;
+        } catch (Exception $e) {
+                //die($e->getTrace());
+            die($e->getMessage());
+        }
+    }
     public function registrar(Subcategorias $sub){
         try {
             /* Sentencias preparadas */

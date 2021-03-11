@@ -15,7 +15,7 @@
                             <i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario().'
                           </button>
                           <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item submenu" href="#">Perfil</a>';?><?php 
+                          ';?><?php 
                           if($_SESSION['user']->getIdroles()=='admin'){
                               echo '<a class="dropdown-item submenu" href="?c=Personas&a=admin">Administración</a>';
                           }

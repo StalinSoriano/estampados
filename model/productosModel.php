@@ -49,6 +49,23 @@ class ProductosModel
             die($e->getMessage());
         }
     }
+    public function filtro($id){
+        try {
+            /* Sentencias preparadas */
+            $sentencia = $this->db->prepare("select p.idproductos,p.nombre,p.precios,p.descripcion,p.foto,p.estado,s.nombre as idsubcategorias from productos as p inner join subcategorias as s on 
+            p.idsubcategorias=s.idsubcategorias where p.idsubcategorias=$id");
+            /* Ejecutar la sentencia */
+            $sentencia->execute(array());
+            /* Obtener los resultado */
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Productos');
+          
+            /* retornar los resultados */
+            return $resultset;
+        } catch (Exception $e) {
+                //die($e->getTrace());
+            die($e->getMessage());
+        }
+    }
     public function registrar(Productos $pro){
         try {
             /* Sentencias preparadas */

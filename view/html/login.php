@@ -14,8 +14,7 @@
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-person-circle "></i> '.$_SESSION['user']->getUsuario().'
                           </button>
-                          <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item submenu" href="#">Perfil</a>';?><?php 
+                          <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">';?><?php 
                           if($_SESSION['user']->getIdroles()=='admin'){
                               echo '<a class="dropdown-item submenu" href="?c=Personas&a=admin">Administración</a>';
                           }
@@ -60,7 +59,7 @@
                     </div>
 
                     <button class="submit">Iniciar Sesión </button>
-                    <button type="button" class="button" id="btnRegistrar">Crear cuenta</button>
+                   <!-- <button type="button" class="button" id="btnRegistrar">Crear cuenta</button>-->
 
                 </form>
             </div>
@@ -72,7 +71,7 @@
 
 
 
-<!-- Modal -->
+<!-- Modal 
 <div class="modal fade bd-example-modal-lg" id="modelRegistrarCuenta" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -147,4 +146,5 @@
         </div>
     </div>
 </div>
+-->
 <br>
