@@ -22,7 +22,7 @@ class ProductosController
 
     public function consulta()
     {
-        if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+        if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
             $pro = $this->productosModel->listar();
 
                 require 'view/html/header.php';
@@ -31,7 +31,7 @@ class ProductosController
                 require_once 'view/html/footer.php';
         } else {
             require 'view/html/header.php';
-            require_once 'view/html/catalogo.php';
+            require_once 'view/html/body.php';
             require_once 'view/html/footer.php';
         }
     }
@@ -39,7 +39,7 @@ class ProductosController
 {
 
   
-    if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+    if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
       $pro= new Productos();
       $pro->setNombre($_REQUEST['nombre']);
       $pro->setPrecios($_REQUEST['precios']);
@@ -68,7 +68,7 @@ class ProductosController
   }
   public function mostrarActividad()
   {
-      if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles() == 'admin') {
+      if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
          
           $pro = new Productos();
           if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
@@ -103,11 +103,18 @@ class ProductosController
 
     public function filtrarProductos()
 {   
-  
-  
-  $pro = $this->productosModel->filtrar($_REQUEST['valor']);
+    if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
+        $pro = $this->productosModel->filtrar($_REQUEST['valor']);
 
-  echo json_encode($pro);
+        echo json_encode($pro);
+
+    }else{
+        require 'view/html/header.php';
+            require_once 'view/html/login.php';
+            require_once 'view/html/footer.php';
+    }
+  
+  
 }
     public function validarfoto() {
        

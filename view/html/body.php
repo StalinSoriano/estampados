@@ -6,8 +6,7 @@
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#team">Nuestro Equipo</a></li>
         <li><a href="#contact">Contáctanos</a></li>
-        <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Carrito de compras" id="carrito2"><i
-                    class="bi bi-cart4"></i></a></li>
+        
         <li class="icono"><?php if(!isset($_SESSION['user'])){echo'<a href="?c=Home&a=Login" data-toggle="tooltip" data-placement="bottom" title="Inicio de Sesión"><i
                     class="bi bi-person-circle"></i></a>';}else {echo'<!-- Default dropleft button -->
                         <div class="btn-group dropleft">
@@ -16,7 +15,7 @@
                           </button>
                           <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
                           ';?><?php 
-                          if($_SESSION['user']->getIdroles()=='admin'){
+                          if(isset($_SESSION['user'])){
                               echo '<a class="dropdown-item submenu" href="?c=Personas&a=admin">Administración</a>';
                           }
                    echo 
@@ -114,7 +113,7 @@
                 <i class="bi bi-geo-alt-fill"></i> <span>Dirección:</span>
                 <p> bolivar bla bla bla</p>
                 <i class="bi bi-telephone-fill"></i> <span>Teléfono:</span>
-                <p> bolivar bla bla bla</p>
+                <p> +593 97 887 8510</p>
                 <i class="bi bi-envelope-fill"></i> <span>Email:</span>
                 <p> bolivar bla bla bla</p>
 
@@ -138,16 +137,16 @@
             <div class="col-sm-12 redesSociales">
                 <ul>
                     <li>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="https://m.facebook.com/adhesivosleon2/"><i class="bi bi-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/adhesivosleon2/"><i class="bi bi-instagram"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.instagram.com/adhesivosleon2/"><i class="bi bi-twitter"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.link/ni0tfn"><i class="bi bi-whatsapp"></i></a>
                     </li>
 
                 </ul>

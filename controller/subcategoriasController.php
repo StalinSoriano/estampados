@@ -21,7 +21,7 @@ class SubcategoriasController
 
     public function consulta()
     {
-        if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+        if (isset($_SESSION['user']) &&($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
             $sub = $this->subcategoriasModel->listar();
 
                 require 'view/html/header.php';
@@ -30,7 +30,7 @@ class SubcategoriasController
                 require_once 'view/html/footer.php';
         } else {
             require 'view/html/header.php';
-            require_once 'view/html/catalogo.php';
+            require_once 'view/html/body.php';
             require_once 'view/html/footer.php';
         }
     }
@@ -38,7 +38,7 @@ class SubcategoriasController
 {
 
   
-    if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+    if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
       $sub= new Subcategorias();
       $sub->setNombre($_REQUEST['nombre']);
       $sub->setEstado($_REQUEST['estado']);
@@ -63,7 +63,7 @@ class SubcategoriasController
   }
   public function mostrarActividad()
   {
-      if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles() == 'admin') {
+      if (isset($_SESSION['user']) &&($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
          
           $sub = new Subcategorias();
           if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {

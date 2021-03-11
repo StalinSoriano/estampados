@@ -5,16 +5,20 @@ require_once 'model/Personas.php';
 require_once 'model/RolesModel.php';
 require_once 'model/Roles.php';
 
+require_once 'model/ProductosModel.php';
+
 class PersonasController
 {
     private $personasModel;
     private $rolesModel;
+    private $productosModel;
+    
 
     public function __construct()
     {
         $this->personasModel = new PersonasModel();
         $this->rolesModel = new rolesModel();
-
+        $this->productosModel = new productosModel();
         session_start();
     }
 
@@ -33,12 +37,12 @@ class PersonasController
               $_SESSION['user'] = $per[0];
                     
 
-              if( $_SESSION['user']->getIdroles()!='admin'){
-                  require 'view/html/header.php';
-
-              require_once 'view/html/catalogo.php';
-
-              require_once 'view/html/footer.php';
+              if( !isset($_SESSION['user'])){
+                require 'view/html/header.php';
+                require_once 'view/html/login.php';
+                require_once 'view/html/footer.php';
+                echo '<script>alertify.error("usuario y/o contraseñas erroneos"); </script>';
+            
               }else{
                   $this->consulta();
               }
@@ -67,7 +71,7 @@ class PersonasController
     public function admin()
     {
 
-      if(isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin'){
+      if(isset($_SESSION['user'])){
         $this->consulta();
        
       }else{
@@ -78,16 +82,24 @@ class PersonasController
     
     public function consulta()
     {
-        if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+        if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='Talento Humano')) {
             $per = $this->personasModel->listar();
 
                 require 'view/html/header.php';
                 require_once 'view/html/admin.php';
                 require_once 'view/personas/personasView.php';
                 require_once 'view/html/footer.php';
-        } else {
+        } else if(isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
+     
+         $pro = $this->productosModel->listar();
+
+         require 'view/html/header.php';
+         require_once 'view/html/admin.php';
+         require_once 'view/productos/productosView.php';
+         require_once 'view/html/footer.php';
+        }else{
             require 'view/html/header.php';
-            require_once 'view/html/catalogo.php';
+            require_once 'view/html/body.php';
             require_once 'view/html/footer.php';
         }
     }
@@ -95,7 +107,7 @@ class PersonasController
 {
 
   
-    if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+    if (isset($_SESSION['user']) &&($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='Talento Humano')) {
       $per= new Personas();
       $per->setNombres($_REQUEST['nombres']);
       $per->setApellidos($_REQUEST['apellidos']);
@@ -129,7 +141,7 @@ class PersonasController
   }
   public function mostrarActividad()
   {
-      if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles() == 'admin') {
+      if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='Talento Humano')) {
          
           $per = new Personas();
           if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {

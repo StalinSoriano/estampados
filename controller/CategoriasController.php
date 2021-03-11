@@ -17,7 +17,7 @@ class CategoriasController
 
     public function consulta()
     {
-        if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+        if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
             $cat = $this->categoriasModel->listar();
 
                 require 'view/html/header.php';
@@ -34,7 +34,7 @@ class CategoriasController
 {
 
   
-    if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles()=='admin') {
+    if (isset($_SESSION['user']) && ($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
       $cat= new Categorias();
       $cat->setNombre($_REQUEST['nombre']);
       $cat->setEstado($_REQUEST['estado']);
@@ -58,7 +58,7 @@ class CategoriasController
   }
   public function mostrarActividad()
   {
-      if (isset($_SESSION['user']) && $_SESSION['user']->getIdroles() == 'admin') {
+      if (isset($_SESSION['user']) &&($_SESSION['user']->getIdroles()=='admin' || $_SESSION['user']->getIdroles()=='trabajador')) {
          
           $cat = new Categorias();
           if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {

@@ -41,20 +41,22 @@ if($c=='Pedidos'){
                     <a href="#" class="nav_logo2"><?php  echo ucwords($_SESSION['user']->getUsuario()).'/'.$_SESSION['user']->getIdroles();?> </a>
                 </div>
                 <div class="nav_list2">
-                    <a href="#" class="nav_link2 <?php echo $active1;?>" >
-                        <ion-icon name="logo-usd" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Pedidos"></ion-icon>
-                        <span class="nav_name2">Pedidos</span>
+                    <?php if(isset($_SESSION['user'])&& ($_SESSION['user']->getIdroles()=='Talento Humano' || $_SESSION['user']->getIdroles()=='admin')) {?>
+                <a href="?c=Personas&a=consulta" class="nav_link2  <?php echo $active3;?>">
+                        <ion-icon name="people-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Personas"></ion-icon>
+                        <span class="nav_name2">Gestión Personas</span>
                     </a>
-                
+                    <?php }?>
+                    <?php if(isset($_SESSION['user'])&& $_SESSION['user']->getIdroles()=='admin') {?>
+
                     <a href="?c=Roles&a=consulta" class="nav_link2  <?php echo $active2;?>" >
                         <ion-icon name="reader-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Roles"></ion-icon>
                         <span class="nav_name2">Gestión Roles</span>
                     </a>
-                    <a href="?c=Personas&a=consulta" class="nav_link2  <?php echo $active3;?>">
-                        <ion-icon name="people-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Personas"></ion-icon>
-                        <span class="nav_name2">Gestión Personas</span>
-                    </a>
-                   
+                    <?php }?>
+                    
+                    <?php if(isset($_SESSION['user'])&& ($_SESSION['user']->getIdroles()=='trabajador' || $_SESSION['user']->getIdroles()=='admin')) {?>
+
                     <div class="nav_link2 collapse2  <?php echo $active4;?>">
                     <ion-icon name="gift-outline" class="nav_icon2" data-toggle="tooltip" data-placement="bottom" title="Gestión Productos"></ion-icon>
                     <span class="nav_name2">Gestión Productos</span>
@@ -66,7 +68,7 @@ if($c=='Pedidos'){
                     </ul>
                 </div>
 
-
+                <?php }?>
 
                 </div>
             </div>
